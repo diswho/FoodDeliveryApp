@@ -1,0 +1,29 @@
+https://www.youtube.com/watch?v=bvn_HYpix6s
+npm install --g expo-cli
+expo init
+npx react-native link
+cd ios
+pod install
+expo start
+
+npm install @reduxjs/toolkit react-redux
+npm list
+twrnc
+react-native-elements
+react-native-vector-icons
+
+react-native-safe-area-view 
+react-native-safe-area-context
+npm install react-native-dotenv
+npm i -S react-native-get-location
+npm install @react-native-community/geolocation --save
+npm install react-native-geolocation-service
+npm install @react-navigation/drawer
+npm install @react-navigation/native-stack
+expo install react-native-maps
+
+tailwind react native classname
+
+expo r -c
+react-native-clean-project
+
