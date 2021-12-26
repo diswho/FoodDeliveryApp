@@ -23,31 +23,53 @@ export const basket = require("../assets/icons/shopping-basket.png");
 export const star = require("../assets/icons/star.png");
 export const sushi = require("../assets/icons/sushi.png");
 export const user = require("../assets/icons/user.png");
+export const cross = require("../assets/icons/close.png");
+export const home = require("../assets/icons/home.png");
+export const wallet = require("../assets/icons/wallet.png");
+export const cart = require("../assets/icons/cart.png");
+export const favourite = require("../assets/icons/favourite.png");
+export const notification = require("../assets/icons/bell.png");
+export const coupon = require("../assets/icons/coupon.png");
+export const settings = require("../assets/icons/settings.png");
+export const invite = require("../assets/icons/add-friend.png");
+export const help = require("../assets/icons/call-center.png");
+export const logout = require("../assets/icons/logout.png");
 
 export default {
-    back,
-    car,
-    cutlery,
-    donut,
-    drink,
-    fire,
-    fries,
-    hamburger,
-    hotdog,
-    like,
-    list,
-    location,
-    master_card,
-    nearby,
-    noodle,
-    pin,
-    pizza,
-    red_pin,
-    rice_bowl,
-    salad,
-    search,
-    basket,
-    star,
-    sushi,
-    user,
-}
+  logout,
+  invite,
+  help,
+  settings,
+  coupon,
+  notification,
+  favourite,
+  back,
+  car,
+  cart,
+  cutlery,
+  cross,
+  donut,
+  drink,
+  fire,
+  fries,
+  hamburger,
+  hotdog,
+  home,
+  like,
+  list,
+  location,
+  master_card,
+  nearby,
+  noodle,
+  pin,
+  pizza,
+  red_pin,
+  rice_bowl,
+  salad,
+  search,
+  basket,
+  star,
+  sushi,
+  user,
+  wallet,
+};
