@@ -21,6 +21,7 @@ npm install react-native-geolocation-service
 npm install @react-navigation/drawer
 npm install @react-navigation/native-stack
 npm install expo-font
+npm install react-redux redux-thunk
 expo install expo-font
 
 npx react-native link
