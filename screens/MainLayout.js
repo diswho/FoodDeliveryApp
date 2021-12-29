@@ -3,7 +3,7 @@ import { Button, Text } from "react-native";
 import Animated from "react-native-reanimated";
 import { COLORS, constants, SIZES } from "../constants";
 import { Home, Cart, Notification, Search, Favourite } from "../screens";
-import { Header } from "../components";
+// import { Header } from "../components";
 import { useDispatch, useSelector } from "react-redux";
 import { setSelectTab } from "../stores/tabSlice";
 
@@ -24,21 +24,12 @@ const MainLayout = ({
         flex: 1,
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: COLORS.white,
+        backgroundColor: COLORS.primary,
         ...drawerAnimationStyle,
       }}
     >
       {/* Header */}
-      <Header
-        containerStyle={{
-          height: 50,
-          paddingHorizontal: SIZES.padding,
-          marginTop: 40,
-          alignItems: "center",
-        }}
-        // title={selectedTab}
-        // title={selectedTab.toUpperCase()}
-      ></Header>
+      
       {/* Content */}
       <Text>Content</Text>
       {/* Footer */}

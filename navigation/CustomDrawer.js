@@ -37,9 +37,11 @@ const CustomDrawerItem = ({ label, icon, isFocused, onPress }) => {
     >
       <Image
         source={icon}
-        style={{ width: 20, height: 20, tintColor: COLORS.black }}
+        style={{ width: 20, height: 20, tintColor: COLORS.white }}
       />
-      <Text style={{ marginLeft: 15, fontSize: SIZES.h3 }}>{label}</Text>
+      <Text style={{ marginLeft: 15, fontSize: SIZES.h3, color: COLORS.white }}>
+        {label}
+      </Text>
     </TouchableOpacity>
   );
 };
@@ -67,9 +69,9 @@ const CustomDrawerContent = ({ navigation }) => {
             <Image
               source={icons.cross}
               style={{
-                height: 35,
-                width: 35,
-                tintColor: COLORS.black,
+                height: 30,
+                width: 30,
+                tintColor: COLORS.white,
               }}
             />
           </TouchableOpacity>
@@ -84,13 +86,18 @@ const CustomDrawerContent = ({ navigation }) => {
             <Image
               // source={dummyData.myProfile?.profile_image}
               source={dummyData.profile_image}
-              style={{ width: 50, height: 50, borderRadius: SIZES.radius }}
+              style={{
+                width: 50,
+                height: 50,
+                borderRadius: SIZES.radius,
+                tintColor: COLORS.white,
+              }}
             />
             <View style={{ marginLeft: SIZES.radius }}>
-              <Text style={{ color: COLORS.black, fontSize: SIZES.h3 }}>
+              <Text style={{ color: COLORS.white, fontSize: SIZES.h3 }}>
                 Sabuydee
               </Text>
-              <Text style={{ color: COLORS.black, fontSize: SIZES.body4 }}>
+              <Text style={{ color: COLORS.white, fontSize: SIZES.body4 }}>
                 Friends
               </Text>
             </View>
@@ -145,7 +152,7 @@ const CustomDrawerContent = ({ navigation }) => {
             style={{
               height: 1,
               marginVertical: SIZES.radius,
-              backgroundColor: COLORS.black,
+              backgroundColor: COLORS.white,
               marginLeft: SIZES.radius,
             }}
           />
@@ -183,18 +190,6 @@ const CustomDrawer = () => {
 
   return (
     <View style={{ flex: 1, backgroundColor: COLORS.primary }}>
-      {/* <Drawer.Navigator>
-        <Drawer.Screen
-          name="MainLayout"
-          component={MainLayout}
-          options={{ title: "My Main", headerShown: false }}
-        />
-        <Drawer.Screen
-          name="Article"
-          component={Notification}
-          options={{ title: "My Article", headerShown: false }}
-        />
-      </Drawer.Navigator> */}
       <Drawer.Navigator
         drawerType="slide"
         overlayColor="transparent"
@@ -214,9 +209,11 @@ const CustomDrawer = () => {
           }, 0);
           return <CustomDrawerContent navigation={props.navigation} />;
         }}
-        backgroundColor={COLORS.primary}
       >
-        <Drawer.Screen name="MainLayout">
+        <Drawer.Screen
+          name="MainLayout"
+          options={{ title: "Home", headerTransparent: true }}
+        >
           {(props) => (
             <MainLayout {...props} drawerAnimationStyle={animatedStyle} />
           )}
