@@ -5,6 +5,7 @@ npx react-native link
 cd ios
 pod install
 expo start
+expo start --clear
 
 npm install @reduxjs/toolkit react-redux
 npm list

@@ -1,22 +1,22 @@
 import React, { useEffect } from "react";
-import { Text } from "react-native";
+import { Button, Text } from "react-native";
 import Animated from "react-native-reanimated";
-import { connect } from "react-redux";
 import { COLORS, constants, SIZES } from "../constants";
 import { Home, Cart, Notification, Search, Favourite } from "../screens";
 import { Header } from "../components";
-import { setSelectedTab } from "../stores/tab/tabActions";
+import { useDispatch, useSelector } from "react-redux";
+import { setSelectTab } from "../stores/tabSlice";
 
 const MainLayout = ({
   drawerAnimationStyle,
   navigation,
-  selectedTab,
-  setSelectedTab,
 }) => {
-  useEffect(() => {
-    setSelectedTab(constants.screen.home);
-    console.log(`=== MainLayout === ${selectedTab}`);
-  }, []);
+  const tabSelect = useSelector(setSelectTab);
+  const dispatch = useDispatch();
+
+  // useEffect(() => {
+  //   console.log(`=== MainLayout === ${JSON.stringify(tabSelect)}`);
+  // }, [tabSelect]);
 
   return (
     <Animated.View
@@ -36,29 +36,14 @@ const MainLayout = ({
           marginTop: 40,
           alignItems: "center",
         }}
-        title={selectedTab}
+        // title={selectedTab}
         // title={selectedTab.toUpperCase()}
       ></Header>
       {/* Content */}
-
+      <Text>Content</Text>
       {/* Footer */}
-      <Text>MainLayout</Text>
+      <Text>Footer</Text>
     </Animated.View>
   );
 };
-// export default MainLayout;
-function mapStateToProps(state) {
-  // console.log(`=== mapStateToProps ===${state}`);
-  return {
-    setSelectedTab: state.tabReducer.selectedTab,
-  };
-}
-function mapDispatchToProps(dispatch) {
-  // console.log("=== mapDispatchToProps ===");
-  return {
-    setSelectedTab: (selectedTab) => {
-      return dispatch(setSelectedTab(selectedTab));
-    },
-  };
-}
-export default connect(mapStateToProps, mapDispatchToProps)(MainLayout);
+export default MainLayout;

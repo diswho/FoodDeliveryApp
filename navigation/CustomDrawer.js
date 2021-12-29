@@ -1,5 +1,4 @@
 import { Image, Text, TouchableOpacity, View } from "react-native";
-import MainLayout from "../screens/MainLayout";
 import {
   COLORS,
   FONTS,
@@ -14,14 +13,15 @@ import {
   DrawerContentScrollView,
 } from "@react-navigation/drawer";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Animated from "react-native-reanimated";
-import { connect } from "react-redux";
-import { setSelectedTab } from "../stores/tab/tabActions";
+import MainLayout from "../screens/MainLayout";
+import { setSelectTab } from "../stores/tabSlice";
+import { Notification } from "../screens";
 
 const Drawer = createDrawerNavigator();
 
 const CustomDrawerItem = ({ label, icon, isFocused, onPress }) => {
-  // console.log(`=== CustomDrawerItem === ${label} - ${isFocused}`);
   return (
     <TouchableOpacity
       style={{
@@ -44,13 +44,21 @@ const CustomDrawerItem = ({ label, icon, isFocused, onPress }) => {
   );
 };
 
-const CustomDrawerContent = ({ navigation, selectedTab }) => {
+const CustomDrawerContent = ({ navigation }) => {
+  const dispatch = useDispatch();
+  const tabSelect = useSelector(setSelectTab);
   return (
     <DrawerContentScrollView
       scrollEnabled={true}
       contentContainerStyle={{ flex: 1 }}
     >
-      <View style={{ flex: 1, paddingHorizontal: SIZES.radius }}>
+      <View
+        style={{
+          flex: 1,
+          paddingHorizontal: SIZES.radius,
+          backgroundColor: COLORS.primary,
+        }}
+      >
         <View style={{ alignItems: "flex-start", justifyContent: "center" }}>
           <TouchableOpacity
             style={{ alignItems: "center", justifyContent: "center" }}
@@ -93,18 +101,20 @@ const CustomDrawerContent = ({ navigation, selectedTab }) => {
           <CustomDrawerItem
             label={constants.screen.home}
             icon={icons.home}
-            isFocused={selectedTab == constants.screen.home}
+            isFocused={tabSelect.payload.tab.selectTab == constants.screen.home}
             onPress={() => {
-              setSelectedTab(constants.screen.home);
+              dispatch(setSelectTab(constants.screen.home));
               navigation.navigate("MainLayout");
             }}
           />
           <CustomDrawerItem
-            label={constants.screen.my_wallet}
+            label={constants.screen.wallet}
             icon={icons.wallet}
-            isFocused={selectedTab == constants.screen.my_wallet}
+            isFocused={
+              tabSelect.payload.tab.selectTab == constants.screen.wallet
+            }
             onPress={() => {
-              setSelectedTab(constants.screen.my_wallet);
+              dispatch(setSelectTab(constants.screen.wallet));
               navigation.navigate("MainLayout");
             }}
           />
@@ -112,18 +122,22 @@ const CustomDrawerContent = ({ navigation, selectedTab }) => {
           <CustomDrawerItem
             label={constants.screen.notification}
             icon={icons.notification}
-            isFocused={selectedTab == constants.screen.notification}
+            isFocused={
+              tabSelect.payload.tab.selectTab == constants.screen.notification
+            }
             onPress={() => {
-              setSelectedTab(constants.screen.notification);
+              dispatch(setSelectTab(constants.screen.notification));
               navigation.navigate("MainLayout");
             }}
           />
           <CustomDrawerItem
             label={constants.screen.favourite}
             icon={icons.favourite}
-            isFocused={selectedTab == constants.screen.favourite}
+            isFocused={
+              tabSelect.payload.tab.selectTab == constants.screen.favourite
+            }
             onPress={() => {
-              setSelectedTab(constants.screen.favourite);
+              dispatch(setSelectTab(constants.screen.favourite));
               navigation.navigate("MainLayout");
             }}
           />
@@ -152,7 +166,7 @@ const CustomDrawerContent = ({ navigation, selectedTab }) => {
     </DrawerContentScrollView>
   );
 };
-const CustomDrawer = ({ selectedTab, setSelectedTab }) => {
+const CustomDrawer = () => {
   // console.log(`=========== CustomDrawer: ${selectedTab}`);
   const [progress, setProgress] = useState(new Animated.Value(0));
 
@@ -169,6 +183,18 @@ const CustomDrawer = ({ selectedTab, setSelectedTab }) => {
 
   return (
     <View style={{ flex: 1, backgroundColor: COLORS.primary }}>
+      {/* <Drawer.Navigator>
+        <Drawer.Screen
+          name="MainLayout"
+          component={MainLayout}
+          options={{ title: "My Main", headerShown: false }}
+        />
+        <Drawer.Screen
+          name="Article"
+          component={Notification}
+          options={{ title: "My Article", headerShown: false }}
+        />
+      </Drawer.Navigator> */}
       <Drawer.Navigator
         drawerType="slide"
         overlayColor="transparent"
@@ -186,14 +212,7 @@ const CustomDrawer = ({ selectedTab, setSelectedTab }) => {
           setTimeout(() => {
             setProgress(props.progress);
           }, 0);
-          // console.log(`=== Drawer.Navigator ${selectedTab}`);
-          return (
-            <CustomDrawerContent
-              navigation={props.navigation}
-              selectedTab={selectedTab}
-              setSelectedTab={setSelectedTab}
-            />
-          );
+          return <CustomDrawerContent navigation={props.navigation} />;
         }}
         backgroundColor={COLORS.primary}
       >
@@ -206,19 +225,4 @@ const CustomDrawer = ({ selectedTab, setSelectedTab }) => {
     </View>
   );
 };
-
-function mapStateToProps(state) {
-  // console.log(`=== mapStateToProps ===${state}`);
-  return {
-    setSelectedTab: state.tabReducer.selectedTab,
-  };
-}
-function mapDispatchToProps(dispatch) {
-  // console.log("=== mapDispatchToProps ===");
-  return {
-    setSelectedTab: (selectedTab) => {
-      return dispatch(setSelectedTab(selectedTab));
-    },
-  };
-}
-export default connect(mapStateToProps, mapDispatchToProps)(CustomDrawer);
+export default CustomDrawer;
