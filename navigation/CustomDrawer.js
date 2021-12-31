@@ -1,4 +1,4 @@
-import { Image, Text, TouchableOpacity, View } from "react-native";
+import { Button, Image, Text, TouchableOpacity, View } from "react-native";
 import {
   COLORS,
   FONTS,
@@ -61,6 +61,7 @@ const CustomDrawerContent = ({ navigation }) => {
           backgroundColor: COLORS.primary,
         }}
       >
+        {/* ===================================== Close Drawer ===================================== */}
         <View style={{ alignItems: "flex-start", justifyContent: "center" }}>
           <TouchableOpacity
             style={{ alignItems: "center", justifyContent: "center" }}
@@ -69,40 +70,42 @@ const CustomDrawerContent = ({ navigation }) => {
             <Image
               source={icons.cross}
               style={{
-                height: 30,
-                width: 30,
+                height: 25,
+                width: 25,
                 tintColor: COLORS.white,
               }}
             />
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={{
-              flexDirection: "row",
-              marginTop: SIZES.radius,
-              alignItems: "center",
-            }}
-            onPress={() => console.log("Profile")}
-          >
-            <Image
-              // source={dummyData.myProfile?.profile_image}
-              source={dummyData.profile_image}
-              style={{
-                width: 50,
-                height: 50,
-                borderRadius: SIZES.radius,
-                tintColor: COLORS.white,
-              }}
-            />
-            <View style={{ marginLeft: SIZES.radius }}>
-              <Text style={{ color: COLORS.white, fontSize: SIZES.h3 }}>
-                Sabuydee
-              </Text>
-              <Text style={{ color: COLORS.white, fontSize: SIZES.body4 }}>
-                Friends
-              </Text>
-            </View>
           </TouchableOpacity>
         </View>
+        {/* ===================================== Logo ===================================== */}
+        <TouchableOpacity
+          style={{
+            flexDirection: "row",
+            marginTop: SIZES.radius,
+            alignItems: "center",
+          }}
+          onPress={() => console.log("Profile")}
+        >
+          <Image
+            // source={dummyData.myProfile?.profile_image}
+            source={dummyData.profile_image}
+            style={{
+              width: 50,
+              height: 50,
+              tintColor: COLORS.white,
+              borderRadius: SIZES.radius,
+            }}
+          />
+          <View style={{ marginLeft: SIZES.radius }}>
+            <Text style={{ color: COLORS.white, fontSize: SIZES.h3 }}>
+              Sabuydee
+            </Text>
+            <Text style={{ color: COLORS.white, fontSize: SIZES.body4 }}>
+              Friends
+            </Text>
+          </View>
+        </TouchableOpacity>
+        {/* ===================================== Draw Item ===================================== */}
         <View style={{ flex: 1, marginTop: SIZES.padding }}>
           {/* <CustomDrawerItem label="constants.screen.home" icon={icons.home} /> */}
           <CustomDrawerItem
@@ -148,12 +151,13 @@ const CustomDrawerContent = ({ navigation }) => {
               navigation.navigate("MainLayout");
             }}
           />
+          {/* ===================================== Draw Item - Line Devider ===================================== */}
           <View
             style={{
               height: 1,
               marginVertical: SIZES.radius,
-              backgroundColor: COLORS.white,
               marginLeft: SIZES.radius,
+              backgroundColor: COLORS.white,
             }}
           />
           <CustomDrawerItem label="Track your Order" icon={icons.location} />
@@ -183,10 +187,11 @@ const CustomDrawer = () => {
   });
   const borderRadius = Animated.interpolateNode(progress, {
     inputRange: [0, 1],
-    outputRange: [0, 26],
+    outputRange: [0, 10],
   });
 
   const animatedStyle = { borderRadius, transform: [{ scale }] };
+  // const animatedStyle = { transform: [{ scale }] };
 
   return (
     <View style={{ flex: 1, backgroundColor: COLORS.primary }}>
@@ -203,6 +208,11 @@ const CustomDrawer = () => {
           backgroundColor: "transparent",
         }}
         initialRouteName="MainLayout"
+        screenOptions={
+          {
+            headerShown: false,
+          }
+        }
         drawerContent={(props) => {
           setTimeout(() => {
             setProgress(props.progress);
@@ -210,10 +220,7 @@ const CustomDrawer = () => {
           return <CustomDrawerContent navigation={props.navigation} />;
         }}
       >
-        <Drawer.Screen
-          name="MainLayout"
-          options={{ title: "Home", headerTransparent: true }}
-        >
+        <Drawer.Screen name="MainLayout">
           {(props) => (
             <MainLayout {...props} drawerAnimationStyle={animatedStyle} />
           )}

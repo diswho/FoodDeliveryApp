@@ -34,8 +34,10 @@ export const settings = require("../assets/icons/settings.png");
 export const invite = require("../assets/icons/add-friend.png");
 export const help = require("../assets/icons/call-center.png");
 export const logout = require("../assets/icons/logout.png");
+export const menu = require("../assets/icons/menu.png");
 
 export default {
+  menu,
   logout,
   invite,
   help,
