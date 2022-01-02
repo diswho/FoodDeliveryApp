@@ -178,7 +178,6 @@ const CustomDrawerContent = ({ navigation }) => {
   );
 };
 const CustomDrawer = () => {
-  // console.log(`=========== CustomDrawer: ${selectedTab}`);
   const [progress, setProgress] = useState(new Animated.Value(0));
 
   const scale = Animated.interpolateNode(progress, {
