@@ -1,6 +1,259 @@
 import images from "./images";
 import icons from "./icons";
 const profile_image = require("../assets/dummyData/user.png");
+
+const menu = [
+  {
+    id: 1,
+    name: "Featureed",
+    list: [
+      {
+        id: 1,
+        categories: [1],
+        name: "Hot tacos",
+        price: 50,
+        description: "Maxican tortilla tocos",
+        calories: 78,
+        image: images.tacos,
+      },
+      {
+        id: 2,
+        categories: [1, 2],
+        name: "Veg Biryani",
+        price: 60,
+        description: "India Vegetable biryani",
+        calories: 78,
+        image: images.vegBiryani,
+      },
+      {
+        id: 3,
+        categories: [1, 2],
+        name: "Hamburger",
+        price: 30,
+        description: "dddkjljjll",
+        calories: 78,
+        image: images.hamburger,
+      },
+    ],
+  },
+  {
+    id: 2,
+    name: "Near By Your",
+    list: [
+      {
+        id: 1,
+        categories: [1],
+        name: "Hot tacos",
+        price: 50,
+        description: "Maxican tortilla tocos",
+        calories: 78,
+        image: images.tacos,
+      },
+      {
+        id: 2,
+        categories: [1, 2],
+        name: "Veg Biryani",
+        price: 60,
+        description: "India Vegetable biryani",
+        calories: 78,
+        image: images.vegBiryani,
+      },
+      {
+        id: 3,
+        categories: [1, 2],
+        name: "Hamburger",
+        price: 30,
+        description: "dddkjljjll",
+        calories: 78,
+        image: images.hamburger,
+      },
+    ],
+  },
+  {
+    id: 3,
+    name: "Popular",
+    list: [
+      {
+        id: 1,
+        categories: [1],
+        name: "Hot tacos",
+        price: 50,
+        description: "Maxican tortilla tocos",
+        calories: 78,
+        image: images.tacos,
+      },
+      {
+        id: 2,
+        categories: [1, 2],
+        name: "Veg Biryani",
+        price: 60,
+        description: "India Vegetable biryani",
+        calories: 78,
+        image: images.vegBiryani,
+      },
+      {
+        id: 3,
+        categories: [1, 2],
+        name: "Hamburger",
+        price: 30,
+        description: "dddkjljjll",
+        calories: 78,
+        image: images.hamburger,
+      },
+    ],
+  },
+  {
+    id: 4,
+    name: "Newest",
+    list: [
+      {
+        id: 1,
+        categories: [1],
+        name: "Hot tacos",
+        price: 50,
+        description: "Maxican tortilla tocos",
+        calories: 78,
+        image: images.tacos,
+      },
+      {
+        id: 2,
+        categories: [1, 2],
+        name: "Veg Biryani",
+        price: 60,
+        description: "India Vegetable biryani",
+        calories: 78,
+        image: images.vegBiryani,
+      },
+      {
+        id: 3,
+        categories: [1, 2],
+        name: "Hamburger",
+        price: 30,
+        description: "dddkjljjll",
+        calories: 78,
+        image: images.hamburger,
+      },
+    ],
+  },
+  {
+    id: 5,
+    name: "Trending",
+    list: [
+      {
+        id: 1,
+        categories: [1],
+        name: "Hot tacos",
+        price: 50,
+        description: "Maxican tortilla tocos",
+        calories: 78,
+        image: images.tacos,
+      },
+      {
+        id: 2,
+        categories: [1, 2],
+        name: "Veg Biryani",
+        price: 60,
+        description: "India Vegetable biryani",
+        calories: 78,
+        image: images.vegBiryani,
+      },
+      {
+        id: 3,
+        categories: [1, 2],
+        name: "Hamburger",
+        price: 30,
+        description: "dddkjljjll",
+        calories: 78,
+        image: images.hamburger,
+      },
+    ],
+  },
+  {
+    id: 6,
+    name: "Recommended",
+    list: [
+      {
+        id: 1,
+        categories: [1],
+        name: "Hot tacos",
+        price: 50,
+        description: "Maxican tortilla tocos",
+        calories: 78,
+        image: images.tacos,
+      },
+      {
+        id: 2,
+        categories: [1, 2],
+        name: "Veg Biryani",
+        price: 60,
+        description: "India Vegetable biryani",
+        calories: 78,
+        image: images.vegBiryani,
+      },
+      {
+        id: 3,
+        categories: [1, 2],
+        name: "Hamburger",
+        price: 30,
+        description: "dddkjljjll",
+        calories: 78,
+        image: images.hamburger,
+      },
+    ],
+  },
+];
+export const categoryData = [
+  {
+    id: 1,
+    name: "Rice",
+    // icon: icons.riceBowl,
+  },
+  {
+    id: 2,
+    name: "Noodles",
+    // icon: icons.noodle,
+  },
+  {
+    id: 3,
+    name: "Hot Dogs",
+    // icon: icons.hotdog,
+  },
+  {
+    id: 4,
+    name: "Salads",
+    // icon: icons.salad,
+  },
+  {
+    id: 5,
+    name: "Burgers",
+    // icon: icons.hamburger,
+  },
+  {
+    id: 6,
+    name: "Pizza",
+    // icon: icons.pizza,
+  },
+  {
+    id: 7,
+    name: "Snacks",
+    // icon: icons.fries,
+  },
+  {
+    id: 8,
+    name: "Sushi",
+    // icon: icons.sushi,
+  },
+  {
+    id: 9,
+    name: "Desserts",
+    // icon: icons.donut,
+  },
+  {
+    id: 10,
+    name: "Drinks",
+    // icon: icons.drink,
+  },
+];
 const trendingRecipes = [
   {
     id: 1,
@@ -260,4 +513,5 @@ export default {
   trendingRecipes,
   categories,
   profile_image,
+  menu,
 };

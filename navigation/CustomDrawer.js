@@ -39,7 +39,7 @@ const CustomDrawerItem = ({ label, icon, isFocused, onPress }) => {
         source={icon}
         style={{ width: 20, height: 20, tintColor: COLORS.white }}
       />
-      <Text style={{ marginLeft: 15, fontSize: SIZES.h3, color: COLORS.white }}>
+      <Text style={{ marginLeft: 15, ...FONTS.h3, color: COLORS.white }}>
         {label}
       </Text>
     </TouchableOpacity>
@@ -97,10 +97,8 @@ const CustomDrawerContent = ({ navigation }) => {
             }}
           />
           <View style={{ marginLeft: SIZES.radius }}>
-            <Text style={{ color: COLORS.white, fontSize: SIZES.h3 }}>
-              Sabuydee
-            </Text>
-            <Text style={{ color: COLORS.white, fontSize: SIZES.body4 }}>
+            <Text style={{ color: COLORS.white, ...FONTS.h3 }}>Sabuydee</Text>
+            <Text style={{ color: COLORS.white, ...FONTS.body4}}>
               Friends
             </Text>
           </View>
@@ -207,11 +205,9 @@ const CustomDrawer = () => {
           backgroundColor: "transparent",
         }}
         initialRouteName="MainLayout"
-        screenOptions={
-          {
-            headerShown: false,
-          }
-        }
+        screenOptions={{
+          headerShown: false,
+        }}
         drawerContent={(props) => {
           setTimeout(() => {
             setProgress(props.progress);

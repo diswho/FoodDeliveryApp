@@ -1,4 +1,3 @@
-
 const avatar_1 = require("../assets/images/avatar-1.jpg");
 const avatar_2 = require("../assets/images/avatar-2.jpg");
 const avatar_3 = require("../assets/images/avatar-3.jpg");
@@ -28,36 +27,40 @@ const sarawak_laksa = require("../assets/images/sarawak-laksa.jpg");
 const sushi = require("../assets/images/sushi.jpg");
 const teh_c_peng = require("../assets/images/teh-c-peng.jpg");
 const tomato_pasta = require("../assets/images/tomato-pasta.jpg");
+const tacos = require("../assets/images/menus/HotTacos.jpeg");
+const hamburger = require("../assets/images/menus/Hamburger.jpeg");
+const vegBiryani = require("../assets/images/menus/VegBiryani.jpeg");
 
 export default {
-    avatar_1,
-    avatar_2,
-    avatar_3,
-    avatar_4,
-    avatar_5,
-    baked_fries,
-    burger_restaurant_1,
-    burger_restaurant_2,
-    chicago_hot_dog,
-    crispy_chicken_burger,
-
-    fries_restaurant,
-    hawaiian_pizza,
-    honey_mustard_chicken_burger,
-    hot_dog_restaurant,
-    ice_kacang,
-
-    japanese_restaurant,
-    kek_lapis_shop,
-    kek_lapis,
-    kolo_mee,
-    nasi_briyani_mutton,
-    nasi_lemak,
-    noodle_shop,
-    pizza_restaurant,
-    pizza,
-    sarawak_laksa,
-    sushi,
-    teh_c_peng,
-    tomato_pasta,
-}
+  avatar_1,
+  avatar_2,
+  avatar_3,
+  avatar_4,
+  avatar_5,
+  baked_fries,
+  burger_restaurant_1,
+  burger_restaurant_2,
+  chicago_hot_dog,
+  crispy_chicken_burger,
+  fries_restaurant,
+  hamburger,
+  hawaiian_pizza,
+  honey_mustard_chicken_burger,
+  hot_dog_restaurant,
+  ice_kacang,
+  japanese_restaurant,
+  kek_lapis,
+  kek_lapis_shop,
+  kolo_mee,
+  nasi_briyani_mutton,
+  nasi_lemak,
+  noodle_shop,
+  pizza,
+  pizza_restaurant,
+  sarawak_laksa,
+  sushi,
+  tacos,
+  teh_c_peng,
+  tomato_pasta,
+  vegBiryani,
+};

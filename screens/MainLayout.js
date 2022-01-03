@@ -203,7 +203,7 @@ const MainLayout = ({ drawerAnimationStyle, navigation }) => {
         ...drawerAnimationStyle,
       }}
     >
-      {/* Header */}
+      {/* ================================================== Header ================================================== */}
       <Header
         containerStyle={{
           height: 50,
@@ -242,7 +242,7 @@ const MainLayout = ({ drawerAnimationStyle, navigation }) => {
           </TouchableOpacity>
         }
       />
-      {/* Content */}
+      {/* ================================================== Content ================================================== */}
       <View style={{ flex: 1 }}>
         <FlatList
           ref={flatListRef}
@@ -269,7 +269,7 @@ const MainLayout = ({ drawerAnimationStyle, navigation }) => {
           }}
         />
       </View>
-      {/* Footer */}
+      {/* ================================================== Footer ================================================== */}
       <View style={{ height: 100, justifyContent: "flex-end" }}>
         <LinearGradient
           start={{ x: 0, y: 0 }}
