@@ -10,18 +10,52 @@ import {
 import { HorizontalFoodCard } from "../../components";
 import { COLORS, dummyData, FONTS, icons, SIZES } from "../../constants";
 
+const Section = ({ title, onPress, children }) => {
+  return (
+    <View>
+      {/* Header */}
+      <View
+        style={{
+          flexDirection: "row",
+          marginHorizontal: SIZES.padding,
+          marginTop: 30,
+          marginBottom: 20,
+        }}
+      >
+        <Text style={{ flex: 1, ...FONTS.h3 }}>{title}</Text>
+        <TouchableOpacity onPress={onPress}>
+          <Text style={{ color: COLORS.primary, ...FONTS.body3 }}>
+            Show All
+          </Text>
+        </TouchableOpacity>
+      </View>
+      {/* Content */}
+      {children}
+    </View>
+  );
+};
+
 export default function Home() {
   const [selectedCategoryId, setSelectedCategoryId] = useState(1);
   const [selectedMenuType, setSelectedMenuType] = useState(1);
   const [menuList, setMenuList] = useState([]);
+  const [recommends, setRecommends] = useState([]);
 
   useEffect(() => {
     handleChangeCategory(selectedCategoryId, selectedMenuType);
   }, []);
 
   const handleChangeCategory = (categoryId, menuTypeId) => {
+    let selectedRecommend = dummyData.menu.find((a) => a.name == "Recommended");
+    // console.log("==== Before ", recommends);
     let selectedMenu = dummyData.menu.find((a) => a.id == menuTypeId);
-    setMenuList(selectedMenu?.list.filter((a) => a.categories.includes(categoryId)));
+    setRecommends(
+      selectedRecommend?.list.filter((a) => a.categories.includes(categoryId))
+    );
+    // console.log("==== After ", recommends);
+    setMenuList(
+      selectedMenu?.list.filter((a) => a.categories.includes(categoryId))
+    );
   };
 
   const renderSearch = () => {
@@ -63,6 +97,7 @@ export default function Home() {
       </View>
     );
   };
+  // ================================= Menu Type =================================
   const renderMenuType = () => {
     return (
       <FlatList
@@ -82,6 +117,10 @@ export default function Home() {
                 marginRight:
                   index == dummyData.menu.length - 1 ? SIZES.padding : 0,
               }}
+              onPress={() => {
+                setSelectedMenuType(item.id);
+                handleChangeCategory(selectedCategoryId, item.id);
+              }}
             >
               <Text
                 style={{
@@ -97,6 +136,42 @@ export default function Home() {
       />
     );
   };
+  // ================================= Recommended Section =================================
+  const renderRecommendedSection = () => (
+    <Section
+      title="Recommended"
+      onPress={() => console.log("Show All Recommend")}
+    >
+      <FlatList
+        data={recommends}
+        keyExtractor={(item) => `${item.id}`}
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        renderItem={({ item, index }) => {
+          return (
+            <HorizontalFoodCard
+              containerStyle={{
+                height: 180,
+                width: SIZES.width * 0.85,
+                marginLeft: index == 0 ? SIZES.padding : 18,
+                marginRight: index == recommends.length - 1 ? SIZES.padding : 0,
+                paddingRight: SIZES.radius,
+                alignItems: "center",
+              }}
+              imageStyle={{
+                // marginTop: 10,
+                marginLeft: 15,
+                height: 130,
+                width: 130,
+              }}
+              item={item}
+              onPress={() => console.log("HorizontalFoodCard")}
+            />
+          );
+        }}
+      />
+    </Section>
+  );
   return (
     <View
       style={{
@@ -110,7 +185,14 @@ export default function Home() {
         data={menuList}
         keyExtractor={(item) => `${item.id}`}
         showsVerticalScrollIndicator={false}
-        ListHeaderComponent={<View>{renderMenuType()}</View>}
+        ListHeaderComponent={
+          <View>
+            {/* Recommended */}
+            {renderRecommendedSection()}
+            {/* Menu Type */}
+            {renderMenuType()}
+          </View>
+        }
         renderItem={({ item, index }) => {
           return (
             <HorizontalFoodCard
@@ -121,9 +203,10 @@ export default function Home() {
                 marginBottom: SIZES.radius,
               }}
               imageStyle={{
-                marginTop: 20,
-                height: 110,
-                width: 110,
+                // marginTop: 5,
+                marginLeft: 10,
+                height: 100,
+                width: 100,
               }}
               item={item}
               onPress={() => console.log("HorizontalCard")}

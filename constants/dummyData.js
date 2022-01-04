@@ -43,7 +43,7 @@ const menu = [
       {
         id: 1,
         categories: [1],
-        name: "Hot tacos",
+        name: "Near Hot tacos",
         price: 50,
         description: "Maxican tortilla tocos",
         calories: 78,
@@ -52,7 +52,7 @@ const menu = [
       {
         id: 2,
         categories: [1, 2],
-        name: "Veg Biryani",
+        name: "Near Veg Biryani",
         price: 60,
         description: "India Vegetable biryani",
         calories: 78,
@@ -61,7 +61,7 @@ const menu = [
       {
         id: 3,
         categories: [1, 2],
-        name: "Hamburger",
+        name: "Near Hamburger",
         price: 30,
         description: "dddkjljjll",
         calories: 78,
@@ -76,7 +76,7 @@ const menu = [
       {
         id: 1,
         categories: [1],
-        name: "Hot tacos",
+        name: "Popular Hot tacos",
         price: 50,
         description: "Maxican tortilla tocos",
         calories: 78,
@@ -85,7 +85,7 @@ const menu = [
       {
         id: 2,
         categories: [1, 2],
-        name: "Veg Biryani",
+        name: "Popular Veg Biryani",
         price: 60,
         description: "India Vegetable biryani",
         calories: 78,
@@ -94,7 +94,7 @@ const menu = [
       {
         id: 3,
         categories: [1, 2],
-        name: "Hamburger",
+        name: "Popular Hamburger",
         price: 30,
         description: "dddkjljjll",
         calories: 78,
@@ -109,7 +109,7 @@ const menu = [
       {
         id: 1,
         categories: [1],
-        name: "Hot tacos",
+        name: "Newest Hot tacos",
         price: 50,
         description: "Maxican tortilla tocos",
         calories: 78,
@@ -118,7 +118,7 @@ const menu = [
       {
         id: 2,
         categories: [1, 2],
-        name: "Veg Biryani",
+        name: "Newest Veg Biryani",
         price: 60,
         description: "India Vegetable biryani",
         calories: 78,
@@ -127,7 +127,7 @@ const menu = [
       {
         id: 3,
         categories: [1, 2],
-        name: "Hamburger",
+        name: "Newest Hamburger",
         price: 30,
         description: "dddkjljjll",
         calories: 78,
@@ -142,7 +142,7 @@ const menu = [
       {
         id: 1,
         categories: [1],
-        name: "Hot tacos",
+        name: "Trending Hot tacos",
         price: 50,
         description: "Maxican tortilla tocos",
         calories: 78,
@@ -151,7 +151,7 @@ const menu = [
       {
         id: 2,
         categories: [1, 2],
-        name: "Veg Biryani",
+        name: "Trending Veg Biryani",
         price: 60,
         description: "India Vegetable biryani",
         calories: 78,
@@ -160,7 +160,7 @@ const menu = [
       {
         id: 3,
         categories: [1, 2],
-        name: "Hamburger",
+        name: "Trending Hamburger",
         price: 30,
         description: "dddkjljjll",
         calories: 78,
@@ -175,7 +175,7 @@ const menu = [
       {
         id: 1,
         categories: [1],
-        name: "Hot tacos",
+        name: "R Hot tacos",
         price: 50,
         description: "Maxican tortilla tocos",
         calories: 78,
@@ -184,7 +184,7 @@ const menu = [
       {
         id: 2,
         categories: [1, 2],
-        name: "Veg Biryani",
+        name: "R Veg Biryani",
         price: 60,
         description: "India Vegetable biryani",
         calories: 78,
@@ -193,7 +193,7 @@ const menu = [
       {
         id: 3,
         categories: [1, 2],
-        name: "Hamburger",
+        name: "R Hamburger",
         price: 30,
         description: "dddkjljjll",
         calories: 78,
