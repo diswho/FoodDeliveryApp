@@ -2,6 +2,8 @@ import images from "./images";
 import icons from "./icons";
 const profile_image = require("../assets/dummyData/user.png");
 
+const myProfile = { address: "No.88, Jin Podungan, Kuching" };
+
 const menu = [
   {
     id: 1,
@@ -76,7 +78,7 @@ const menu = [
       {
         id: 1,
         categories: [1],
-        name: "Popular Hot tacos",
+        name: "P Hot tacos",
         price: 50,
         description: "Maxican tortilla tocos",
         calories: 78,
@@ -85,7 +87,7 @@ const menu = [
       {
         id: 2,
         categories: [1, 2],
-        name: "Popular Veg Biryani",
+        name: "P Veg Biryani",
         price: 60,
         description: "India Vegetable biryani",
         calories: 78,
@@ -94,7 +96,7 @@ const menu = [
       {
         id: 3,
         categories: [1, 2],
-        name: "Popular Hamburger",
+        name: "P Hamburger",
         price: 30,
         description: "dddkjljjll",
         calories: 78,
@@ -202,56 +204,56 @@ const menu = [
     ],
   },
 ];
-export const categoryData = [
+export const categories = [
   {
     id: 1,
     name: "Rice",
-    // icon: icons.riceBowl,
+    icon: icons.rice_bowl,
   },
   {
     id: 2,
     name: "Noodles",
-    // icon: icons.noodle,
+    icon: icons.noodle,
   },
   {
     id: 3,
     name: "Hot Dogs",
-    // icon: icons.hotdog,
+    icon: icons.hotdog,
   },
   {
     id: 4,
     name: "Salads",
-    // icon: icons.salad,
+    icon: icons.salad,
   },
   {
     id: 5,
     name: "Burgers",
-    // icon: icons.hamburger,
+    icon: icons.hamburger,
   },
   {
     id: 6,
     name: "Pizza",
-    // icon: icons.pizza,
+    icon: icons.pizza,
   },
   {
     id: 7,
     name: "Snacks",
-    // icon: icons.fries,
+    icon: icons.fries,
   },
   {
     id: 8,
     name: "Sushi",
-    // icon: icons.sushi,
+    icon: icons.sushi,
   },
   {
     id: 9,
     name: "Desserts",
-    // icon: icons.donut,
+    icon: icons.donut,
   },
   {
     id: 10,
     name: "Drinks",
-    // icon: icons.drink,
+    icon: icons.drink,
   },
 ];
 const trendingRecipes = [
@@ -507,11 +509,10 @@ const trendingRecipes = [
   },
 ];
 
-const categories = trendingRecipes;
-
 export default {
   trendingRecipes,
   categories,
   profile_image,
   menu,
+  myProfile,
 };

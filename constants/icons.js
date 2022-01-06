@@ -36,6 +36,7 @@ export const help = require("../assets/icons/call-center.png");
 export const logout = require("../assets/icons/logout.png");
 export const menu = require("../assets/icons/menu.png");
 export const filter = require("../assets/icons/edit.png");
+export const down_arrow = require("../assets/icons/down_arrow.png");
 
 export default {
   back,
@@ -46,6 +47,7 @@ export default {
   cross,
   cutlery,
   donut,
+  down_arrow,
   drink,
   favourite,
   filter,
