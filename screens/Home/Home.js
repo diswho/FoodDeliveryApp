@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import { FilterModal } from "./FilterModal";
 import { HorizontalFoodCard, VerticalFoodCard } from "../../components";
 import { COLORS, dummyData, FONTS, icons, SIZES } from "../../constants";
 
@@ -41,6 +42,7 @@ export default function Home() {
   const [popular, setPopular] = useState([]);
   const [menuList, setMenuList] = useState([]);
   const [recommends, setRecommends] = useState([]);
+  const [showFilterModal, setShowFilterModal] = useState(false);
 
   useEffect(() => {
     handleChangeCategory(selectedCategoryId, selectedMenuType);
@@ -96,7 +98,7 @@ export default function Home() {
           placeholder="Search...."
         />
         {/* ======================== Filter Button ========================*/}
-        <TouchableOpacity onPress={() => {}}>
+        <TouchableOpacity onPress={() => setShowFilterModal(true)}>
           <Image source={icons.filter} />
         </TouchableOpacity>
       </View>
@@ -298,6 +300,14 @@ export default function Home() {
     >
       {/* ================================================== Search ==================================================  */}
       {renderSearch()}
+      {/* ================================================== Filter ==================================================  */}
+      {showFilterModal && (
+        <FilterModal
+          isVisible={showFilterModal}
+          onClose={() => setShowFilterModal(false)}
+        />
+      )}
+
       {/* ================================================== List ==================================================  */}
       <FlatList
         data={menuList}
